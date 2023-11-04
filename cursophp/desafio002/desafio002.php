@@ -15,6 +15,6 @@
         echo "O valor gerado foi <strong>$res</strong>";
     ?>
     <br>
-    <input type="button" name="$res" value="Gerar valor!">
+    <button onclick="javascript:document.location.reload()">&#x1F504; Gerar outro</button>
 </body>
 </html>
