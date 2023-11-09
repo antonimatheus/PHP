@@ -10,9 +10,14 @@
     <p>gerando um número aleatório entre 0 e 100...</p>
     <?php
         $min = 0;
-        $max = 100;
+        $max = 3;
         $res = rand($min, $max);
         echo "O valor gerado foi <strong>$res</strong>";
+
+        while($res === 1) {
+            echo"Parabéns pela sorte grande";
+            break;
+        }
     ?>
     <br>
     <button onclick="javascript:document.location.reload()">&#x1F504; Gerar outro</button>
