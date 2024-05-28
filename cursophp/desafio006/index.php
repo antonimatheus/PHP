@@ -27,7 +27,10 @@
         $resInteiro = $dividendo / $divisor;
         $resSobra = $dividendo % $divisor;
 
-        echo "A divisão entre $dividendo e $divisor é de $resInteiro e resto $resSobra";
+        echo "A divisão entre $dividendo e $divisor: <li>resultado: <strong>" . 
+        number_format($resInteiro , 2, ",", ".") . 
+        "</li></strong> 
+        <li>resto: <strong>$resSobra</strong></li>";
     ?>
 </body>
 </html>
