@@ -4,11 +4,12 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Anatomia de uma Divisão</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <?php 
         $dividendo = $_GET['n1'] ?? 0;
-        $divisor = $_GET['n2'] ?? 0;
+        $divisor = $_GET['n2'] ?? 1;
     ?>
 
     <main>
