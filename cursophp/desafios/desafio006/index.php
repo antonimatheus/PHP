@@ -17,21 +17,43 @@
 
             <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
                 <label for="n1">Dividendo</label>
-                <input type="number" name="n1" id="n1" value="<?=$dividendo?>">
+                <input type="number" name="n1" id="n1" min="0" value="<?=$dividendo?>">
                 <label for="n2">Divisor</label>
-                <input type="number" name="n2" id="n2" value="<?=$divisor?>">
+                <input type="number" name="n2" id="n2" min="1" value="<?=$divisor?>">
                 <input type="submit" value="Enviar">
             </form>
     </main>
 
-    <?php 
-        $resInteiro = $dividendo / $divisor;
-        $resSobra = $dividendo % $divisor;
+    <section>
 
-        echo "A divisão entre $dividendo e $divisor: <li>resultado: <strong>" . 
-        number_format($resInteiro , 2, ",", ".") . 
-        "</li></strong> 
-        <li>resto: <strong>$resSobra</strong></li>";
-    ?>
+    <h2>Estrutura da divisão</h2>
+
+        <?php
+            $resInteiro = (int) ($dividendo / $divisor);
+            $resSobra = $dividendo % $divisor;
+
+            /*
+            echo "A divisão entre $dividendo e $divisor: 
+            <li>
+                resultado: 
+                <strong>" . $resInteiro ."
+                </li>
+                </strong><li>resto: 
+                <strong>$resSobra</strong>
+            </li>";
+            */
+        ?>
+
+        <table class="divisao">
+            <tr>
+                <td><?=$dividendo?></td>
+                <td><?=$divisor?></td>
+            </tr>
+            <tr>
+                <td><?=$resSobra?></td>
+                <td><?=$resInteiro?></td>
+            </tr>
+        </table>
+    </section>
 </body>
 </html>
