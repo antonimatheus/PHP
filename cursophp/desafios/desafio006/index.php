@@ -11,7 +11,6 @@
         $dividendo = $_GET['n1'] ?? 0;
         $divisor = $_GET['n2'] ?? 1;
     ?>
-
     <main>
         <h1>Anatomia de uma Divisão</h1>
 
@@ -23,7 +22,6 @@
                 <input type="submit" value="Enviar">
             </form>
     </main>
-
     <section>
 
     <h2>Estrutura da divisão</h2>
