@@ -14,7 +14,7 @@
         <h1>Informe o seu salário</h1>
         <form action="<?=$_SERVER['PHP_SELF']?>" method="get">
             <label for="valor">Salário (R$)</label>
-            <input type="number" name="valor" id="valor" value="<?=$valor?>">
+            <input type="number" name="valor" id="valor" min="0" value="<?=$valor?>">
             <p>Considerando o salário minímo de R$1.412,00</p>
             <button type="submit">Calcular</button>
         </form>
@@ -25,7 +25,7 @@
         $salarioMin = (int)($valor / $valorDoSalárioMinímo);
         if($salarioMin < $valorDoSalárioMinímo) {
             $salarioResto = ($valor % $valorDoSalárioMinímo);
-            echo "$salarioResto";
+            //echo "$salarioResto";
         };
 
         $valorFormatado = number_format($valor, 2, ",", ".");
