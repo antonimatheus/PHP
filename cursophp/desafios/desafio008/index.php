@@ -20,7 +20,8 @@
     </main>
 
     <?php 
-        $raizQuadrada = sqrt($numero);
+        //$raizQuadrada = sqrt($numero);
+        $raizQuadrada = $numero ** (1/2);
         $raizCubica = $numero ** (1/3);
         
         $raizQuadradaFormatada = number_format($raizQuadrada, 3, ",", ".");
