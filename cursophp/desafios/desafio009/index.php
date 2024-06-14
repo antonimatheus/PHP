@@ -12,7 +12,6 @@
     $primeiroPeso = $_GET['primeiroPeso'] ?? 1;
     $segundoValor = $_GET['segundoValor'] ?? 0;
     $segundoPeso = $_GET['segundoPeso'] ?? 1;
-
     ?>
     <main>
         <h1>Médias Aritméticas</h1>
