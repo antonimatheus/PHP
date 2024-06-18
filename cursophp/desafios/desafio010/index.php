@@ -30,7 +30,9 @@
 
         <section>
             <h2>Resultado</h2>
-            <p>Quem nasceu em <?=$nasc?> terá <strong><?=$calculoIdade?></strong> anos em <?=$anoIdade?>!</p>
+            <?= $anoIdade < $nasc ? 
+            "<p><strong>Err0!</strong> Ano de nascimento <i>($nasc)</i> não pode ser maior que o ano <i>($anoIdade)</i>!</p>" : 
+            "<p>Quem nasceu em $nasc terá <strong>$calculoIdade</strong> " . ($calculoIdade <= 1 ? "ano" : "anos") . " em $anoIdade !</p>"?>
         </section>
     </main>
 </body>
