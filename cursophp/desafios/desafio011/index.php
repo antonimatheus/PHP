@@ -10,6 +10,8 @@
     <?php 
         $produtoPreco = $_GET['produtoPreco'] ?? 0;
         $reajuste = $_GET['reajuste'] ?? 0;
+
+        $produtoPrecoFormatado = number_format($produtoPreco, 2, ",", ".");
     ?>
 
     <main>
@@ -18,8 +20,8 @@
             <label for="produtoPreco">Preço do Produto (R$)</label>
             <input type="number" name="produtoPreco" id="produtoPreco" value="<?=$produtoPreco?>">
 
-            <label for="reajuste">Qual será o percentual de reajuste? (<strong><span id="reajuste-value"></span>%</strong>)</label>
-            <input type="range" name="reajuste" id="reajuste" min="0" max="100" value="<?=$reajuste?>">
+            <label for="reajuste">Qual será o percentual de reajuste? (<strong><span id="porcentagem">?</span>%</strong>)</label>
+            <input type="range" name="reajuste" id="reajuste" min="0" max="100" value="<?=$reajuste?>" oninput="mudaValor()">
 
             <button type="submit">Reajustar</button>
         </form>
@@ -28,24 +30,22 @@
     <?php 
         $aumento = ($reajuste / 100) * $produtoPreco;
         $total = $produtoPreco + $aumento;
+
+        $totalFormatado = number_format($total, 2, ",", ".");
     ?>
 
     <section>
         <h2>Resultado do Reajuste</h2>
-        <p>O produto que custava R$<?=$produtoPreco?>, <strong>com <?=$reajuste?>% de aumento</strong> vai passar a custar <strong>R$<?=$total?></strong> a partir de agora.</p>
+        <p>O produto que custava R$<?=$produtoPrecoFormatado?>, <strong>com <?=$reajuste?>% de aumento</strong> vai passar a custar <strong>R$<?=$totalFormatado?></strong> a partir de agora.</p>
     </section>
 
     <script>
-        const rangeInput = document.getElementById('reajuste');
-        const rangeValue = document.getElementById('reajuste-value');
+        //Declarações automáticas
+        mudaValor()
 
-        // Atualiza o valor inicial
-        rangeValue.textContent = rangeInput.value;
-
-        // Atualiza o valor em tempo real
-        rangeInput.addEventListener('input', function() {
-            rangeValue.textContent = this.value;
-        });
+        function mudaValor() {
+            porcentagem.innerText = reajuste.value;
+        }
     </script>
 </body>
 </html>
