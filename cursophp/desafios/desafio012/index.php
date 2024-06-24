@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        $tempo = $_GET["tempo"] ?? 12;
+        $tempo = $_GET["tempo"] ?? 0;
     ?>
     <main>
         <h1>Calculadora de Tempo</h1>
@@ -23,6 +23,13 @@
     <section>
         <h2>Totalizando tudo</h2>
         <p>Analizando o valor que você digitou, <strong><?=$tempo?> segundos</strong>, equivalem a um total de:</p>
+        <ul>
+            <li>... semanas</li>
+            <li>... dias</li>
+            <li>... horas</li>
+            <li>... minutos</li>
+            <li>... segundos</li>
+        </ul>
     </section>
 </body>
 </html>
