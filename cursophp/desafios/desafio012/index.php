@@ -8,7 +8,7 @@
 </head>
 <body>
     <?php
-        $tempo = $_GET["tempo"] ?? 0;
+        $tempo = $_GET["tempo"] ?? 12;
     ?>
     <main>
         <h1>Calculadora de Tempo</h1>
