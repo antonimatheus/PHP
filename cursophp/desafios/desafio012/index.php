@@ -15,7 +15,7 @@
         <h1>Calculadora de Tempo</h1>
         <form action="<?=$_SERVER["PHP_SELF"]?>" method="get">
             <label for="tempo">Qual é o total de segundos?</label>
-            <input type="number" name="tempo" id="tempo" value="<?=$tempo?>">
+            <input type="number" name="tempo" id="tempo" min="0" value="<?=$tempo?>">
 
             <input type="submit" value="Calcular">
         </form>
@@ -37,13 +37,13 @@
     
     <section>
         <h2>Totalizando tudo</h2>
-        <p>Analizando o valor que você digitou, <strong><?=$tempo?> segundos</strong>, equivalem a um total de:</p>
+        <p>Analizando o valor que você digitou, <strong><?=$tempo?> <?=$tempo <= 1 ? "segundo" : "segundos"?></strong>, equivalem a um total de:</p>
         <ul>
-            <li><?=$semanasF?> semanas</li>
-            <li><?=$diasF?> dias</li>
-            <li><?=$horasF?> horas</li>
-            <li><?=$minutosF?> minutos</li>
-            <li><?=$segundosF?> segundos</li>
+            <li><?=$semanasF?> <?=$semanasF <= 1 ? "semana" : "semanas"?></li>
+            <li><?=$diasF?> <?=$diasF <= 1 ? "dia" : "dias"?></li>
+            <li><?=$horasF?> <?=$horasF <= 1 ? "hora" : "horas"?></li>
+            <li><?=$minutosF?> <?=$minutosF <= 1 ? "minuto" : "minutos"?></li>
+            <li><?=$segundosF?> <?=$segundosF <= 1 ? "segundo" : "segundos"?></li>
         </ul>
     </section>
 </body>
