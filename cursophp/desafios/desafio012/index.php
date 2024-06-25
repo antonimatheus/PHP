@@ -9,6 +9,8 @@
 <body>
     <?php
         $tempo = $_GET["tempo"] ?? 0;
+
+        $tempoF = number_format($tempo, 0, ",", ".");
     ?>
 
     <main>
@@ -37,7 +39,7 @@
     
     <section>
         <h2>Totalizando tudo</h2>
-        <p>Analizando o valor que você digitou, <strong><?=$tempo?> <?=$tempo <= 1 ? "segundo" : "segundos"?></strong>, equivalem a um total de:</p>
+        <p>Analizando o valor que você digitou, <strong><?=$tempoF?> <?=$tempo <= 1 ? "segundo" : "segundos"?></strong>, equivalem a um total de:</p>
         <ul>
             <li><?=$semanasF?> <?=$semanasF <= 1 ? "semana" : "semanas"?></li>
             <li><?=$diasF?> <?=$diasF <= 1 ? "dia" : "dias"?></li>
