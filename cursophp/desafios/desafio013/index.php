@@ -10,6 +10,7 @@
     <main>
         <?php
             $valor = $_GET["valor"] ?? 0;
+            $valorFormatado = number_format($valor, 2, ",",".");
         ?>
 
         <h1>Caixa Eletrônico</h1>
@@ -23,14 +24,21 @@
         </form>
     </main>
 
+    <?php
+        $cem = (int)($valor / 100);
+        $cinquenta = (int)(($valor % 100) / 50);
+        $dez = (int)(($valor % 50) / 10);
+        $cinco = (int)(($valor % 10) / 5);
+    ?>
+
     <section>
-        <h2>Saque de R$<?=$valor?> realizado</h1>
+        <h2>Saque de R$<?=$valorFormatado?> realizado</h1>
         <p>O caixa eletrônico vai te entragar as seguintes notas:</p>
-        <ul>
-            <li>100: ...</li>
-            <li>50: ...</li>
-            <li>10: ...</li>
-            <li>5: ...</li>
+        <ul id="notas">
+            <li><img src="./media/100_front.jpg" alt="nota" width="130px"> x<?=$cem?></li>
+            <li><img src="./media/50_front.jpg" alt="nota" width="130px"> x<?=$cinquenta?></li>
+            <li><img src="./media/10_front.jpg" alt="nota" width="130px"> x<?=$dez?></li>
+            <li><img src="./media/5_front.jpg" alt="nota" width="130px"> x<?=$cinco?></li>
         </ul>
     </section>
 </body>
