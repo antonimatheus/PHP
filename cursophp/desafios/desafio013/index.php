@@ -16,29 +16,48 @@
         <h1>Caixa Eletrônico</h1>
         <form action="<?=$_SERVER["PHP_SELF"]?>" method="get">
             <label for="valor">Qual valor você deseja sacar? (R$)*</label>
-            <input type="number" name="valor" id="valor" min="0" step="5" value="<?=$valor?>">
+            <input type="number" name="valor" id="valor" min="0" value="<?=$valor?>">
 
-            <p>*notas disponíveis: R$100, R$50, R$10, R$5</p>
+            <p>*notas disponíveis: R$100, R$50, R$20, R$10, R$5, R$2, R$1</p>
 
             <input type="submit" value="Sacar">
         </form>
     </main>
 
     <?php
-        $cem = (int)($valor / 100);
-        $cinquenta = (int)(($valor % 100) / 50);
-        $dez = (int)(($valor % 50) / 10);
-        $cinco = (int)(($valor % 10) / 5);
+        // Calcula a quantidade de cada nota
+            $cem = (int)($valor / 100);
+            $valor %= 100;
+
+            $cinquenta = (int)($valor / 50);
+            $valor %= 50;
+
+            $vinte = (int)($valor / 20);
+            $valor %= 20;
+
+            $dez = (int)($valor / 10);
+            $valor %= 10;
+
+            $cinco = (int)($valor / 5);
+            $valor %= 5;
+
+            $dois = (int)($valor / 2);
+            $valor %= 2;
+
+            $um = $valor; // O que sobrar é de R$1
     ?>
 
     <section>
-        <h2>Saque de R$<?=$valorFormatado?> realizado</h1>
+        <h2>Saque de R$<?=$valorFormatado?> realizado</h2>
         <p>O caixa eletrônico vai te entragar as seguintes notas:</p>
         <ul id="notas">
             <li><img src="./media/100_front.jpg" alt="nota" width="130px"> x<?=$cem?></li>
             <li><img src="./media/50_front.jpg" alt="nota" width="130px"> x<?=$cinquenta?></li>
+            <li><img src="./media/20_front.jpg" alt="nota" width="130px"> x<?=$vinte?></li>
             <li><img src="./media/10_front.jpg" alt="nota" width="130px"> x<?=$dez?></li>
             <li><img src="./media/5_front.jpg" alt="nota" width="130px"> x<?=$cinco?></li>
+            <li><img src="./media/2_front.jpg" alt="nota" width="130px"> x<?=$dois?></li>
+            <li><img src="./media/1-real.jpg" alt="nota" width="80px"> x<?=$um?></li>
         </ul>
     </section>
 </body>
